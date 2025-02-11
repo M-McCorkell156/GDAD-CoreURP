@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - CinemachineTarget
   - EST
+  - ComfortZone
   layers:
   - Default
   - TransparentFX

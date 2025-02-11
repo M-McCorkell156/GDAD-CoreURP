@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,20 +13,22 @@ public class EnemySwarmBhv_Script : MonoBehaviour
 
     [SerializeField] private float checkTimeSecs; 
     [SerializeField] private GameObject ESTPrefab;
-    private string ESTPrefabName;
-    [SerializeField] private int groupCount; 
+
+    [SerializeField] private string CfZnTagName;
+
+    [SerializeField] private int groupCount;
 
     //private GameObject 
-
-    public static HashSet<GameObject> allLiveEST
 
     private bool isComfort;
 
     private void Start()
     {
+        groupCount = 0;
         Debug.Log("Begin");
 
         StartCoroutine(CheckTime());
+
     }
 
     // Update is called once per frame
@@ -46,18 +49,18 @@ public class EnemySwarmBhv_Script : MonoBehaviour
 
     private IEnumerator CheckTime()
     {
-        Debug.Log("Chek time ienum ");
+        //Debug.Log("Chek time ienum ");
         yield return new WaitForSeconds(checkTimeSecs);
 
         PreferredBehaviour();
 
         StartCoroutine(CheckTime());
-        Debug.Log("Yield return ");
+        //Debug.Log("fin");
     }
 
     private void PreferredBehaviour()
     {
-        Debug.Log("Start PrefBhv");
+        //Debug.Log("Start PrefBhv");
         if (isComfort) // If comfortable charge plyer
         {
             transform.LookAt(playerObj.transform.position);
@@ -78,24 +81,29 @@ public class EnemySwarmBhv_Script : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("there collison");
-        if (other.gameObject.name == ESTPrefabName)
+
+        if (other.gameObject.tag == CfZnTagName)
         {
             Debug.Log("i got friend");
             groupCount++;
         }
 
-        if (groupCount >= 5)
+        if (groupCount >= 1)
         {
             isComfort = true;
+            Debug.Log("isCom true");
         }
+
         else
         {
             isComfort = false;
+            Debug.Log("isCom false");
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == ESTPrefabName)
+        if (other.gameObject.tag == CfZnTagName)
         {
             Debug.Log("bye friend");
             groupCount--;

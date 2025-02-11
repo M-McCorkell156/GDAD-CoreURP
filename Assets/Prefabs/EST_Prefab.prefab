@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2274316722200389325}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5531255202902419318}
   - component: {fileID: 4720178072105807009}
+  - component: {fileID: 1548922375130241181}
   m_Layer: 0
   m_Name: EST_Bhv_Script
   m_TagString: Untagged
@@ -135,7 +136,29 @@ MonoBehaviour:
   comfortZone: {fileID: 7931105593507626592}
   checkTimeSecs: 5
   ESTPrefab: {fileID: 9037643736704687778}
+  CfZnTagName: ComfortZone
   groupCount: 3
+--- !u!135 &1548922375130241181
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288138358272959666}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6742190465441719178
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +171,7 @@ GameObject:
   - component: {fileID: 7931105593507626592}
   m_Layer: 0
   m_Name: ComfortZone
-  m_TagString: Untagged
+  m_TagString: ComfortZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,8 +208,8 @@ SphereCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
